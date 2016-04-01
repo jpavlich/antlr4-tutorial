@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor
+	xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd"
+	name="antlr4-archetype"
+	xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<requiredProperties>
+		<requiredProperty key="classPrefix">
+			<defaultValue>${artifactId.substring(0,1).toUpperCase().replace("-","")}${artifactId.substring(1).replace("-","")}</defaultValue>
+		</requiredProperty>
+		<requiredProperty key="fileExtension">
+			<defaultValue>${artifactId.toLowerCase().replace("-","")}</defaultValue>
+		</requiredProperty>
+		<requiredProperty key="pkg1">
+			<defaultValue>${groupId.toLowerCase().replace("-","")}</defaultValue>
+		</requiredProperty>
+		<requiredProperty key="pkg2">
+			<defaultValue>${artifactId.toLowerCase().replace("-","")}</defaultValue>
+		</requiredProperty>
+		<requiredProperty key="basePackage">
+			<defaultValue>${groupId.toLowerCase().replace("-","")}.${artifactId.toLowerCase().replace("-","")}</defaultValue>
+		</requiredProperty>
+
+	</requiredProperties>
+
+	<fileSets>
+		<fileSet filtered="true" encoding="UTF-8">
+			<directory>src/main/java</directory>
+			<includes>
+				<include>**/*.java</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="true" encoding="UTF-8">
+			<directory>src/main/antlr4</directory>
+			<includes>
+				<include>**/*.g4</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="true" encoding="UTF-8">
+			<directory>test</directory>
+			<includes>
+				<include>**/*</include>
+			</includes>
+		</fileSet>
+
+	</fileSets>
+</archetype-descriptor>

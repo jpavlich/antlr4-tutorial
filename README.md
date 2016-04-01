@@ -8,8 +8,8 @@ Este tutorial se enfoca en utilizar ANTLR para crear un intérprete de un lengua
 
 * [Instalación y configuración de ANTLR v4](doc/instalacion.md)
 * [El proceso de interpretación](doc/proceso.md)
-* [Analizador sintáctico](doc/analizador_sintactico.md)
 * [Analizador léxico](doc/analizador_lexico.md)
+* [Analizador sintáctico](doc/analizador_sintactico.md)
 * [Interpretando código](doc/intepretando_codigo.md)
 * [Expresiones aritméticas, lógicas y de comparación](doc/expresiones.md)
 * [Patrón Interpreter y análisis semántico](patron_interpreter.md)
