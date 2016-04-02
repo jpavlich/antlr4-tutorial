@@ -25,7 +25,7 @@ El repositorio de este tutorial contiene muchos archivos útiles para la instala
 2. Descomprimir el archivo `antlr4-tutorial-master.zip` en la carpeta que desee.
 
 
-### II. Eclipse
+### Eclipse
 
 1. Instalar [Eclipse Modeling Tools](http://www.eclipse.org/downloads/packages/eclipse-modeling-tools/mars2)
 2. Instalar el plugin [m2e](http://www.eclipse.org/m2e/m2e-downloads.html)
@@ -44,11 +44,11 @@ Alternativamente, todos los plugins anteriores (m2e) pueden instalarse en forma 
 5. Seleccionar todos los plugins que aparezcan en la lista 
 6. **Deseleccionar** la opción `Install latest version of selected software`. Esto es porque el plugin ANTLR 4 IDE funciona exclusivamente con la versión 2.7.2 de Xtext y con esto se evita que Eclipse instale una versión posterior.
 
-### III. Maven
+### Maven
 
 Las instrucciones para instalar maven se encuentran [aquí](https://maven.apache.org/install.html)
 
-## IV. Configuración de un proyecto en ANTLR 4
+## II. Configuración de un proyecto en ANTLR 4
 
 El repositorio también provee un arquetipo de maven, llamado `antlr4-archetype`, para crear proyectos ANTLR4. Los proyectos creados a partir de este arquetipo están preconfigurados para comenzar a desarrollar sin mayores inconvenientes (asumiendo que los pasos anteriores de la instalación hayan sido ejecutados correctamente).
 
