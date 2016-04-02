@@ -17,9 +17,15 @@ Se asume que el lector tiene las siguientes competencias:
         - Configurar dependencias
         - Configurar proceso de construcción (build)
 
-## Instalación de entorno de desarrollo
+## I. Instalación de entorno de desarrollo
 
-### Eclipse
+El repositorio de este tutorial contiene muchos archivos útiles para la instalación. La forma más simple de descargar el repositorio es:
+
+1. Descargar el archivo `antlr4-tutorial-master.zip` desde este [enlace](https://github.com/jpavlich/antlr4-tutorial/archive/master.zip).
+2. Descomprimir el archivo `antlr4-tutorial-master.zip` en la carpeta que desee.
+
+
+### II. Eclipse
 
 1. Instalar [Eclipse Modeling Tools](http://www.eclipse.org/downloads/packages/eclipse-modeling-tools/mars2)
 2. Instalar el plugin [m2e](http://www.eclipse.org/m2e/m2e-downloads.html)
@@ -37,21 +43,34 @@ Alternativamente, todos los plugins anteriores (m2e) pueden instalarse en forma 
 4. Seleccionar todos los plugins que aparezcan en la lista 
 5. _Deseleccionar_ la opción `Install latest version of selected software`. Esto es porque el plugin ANTLR 4 IDE funciona exclusivamente con la versión 2.7.2 de Xtext.
 
-### Maven
+### III. Maven
 
+Las instrucciones para instalar maven se encuentran [aquí](https://maven.apache.org/install.html)
 
-## Configuración de un proyecto en ANTLR 4
+## IV. Configuración de un proyecto en ANTLR 4
 
-1. Instalar el arquetipo `antlr4-archetype` que se encuentra en `_RUTA_`.
+El repositorio también provee un arquetipo de maven, llamado `antlr4-archetype`, para crear proyectos ANTLR4. Los proyectos creados a partir de este arquetipo están preconfigurados para comenzar a desarrollar sin mayores inconvenientes (asumiendo que los pasos anteriores de la instalación hayan sido ejecutados correctamente).
+
+1. Abrir la línea de comandos e ingresar a la carpeta `antlr4-tutorial-master`.
+2. Instalar el arquetipo `antlr4-archetype` que se encuentra en `install_files/antlr4-archetype`.
 
 ```
-cd _RUTA_
+cd install_files/antlr4-archetype
 mvn install
+cd ..
 ```
 
-2. Utilizar Eclipse para crear un nuevo proyecto Maven y seleccionar el arquetipo `antlr4-archetype` como base para crear el proyecto.
+2. Crear un nuevo proyecto basado en el arquetipo `antlr4-archetype`. En el siguiente comando, reemplace `my-app` por el nombre del proyecto que desea crear y `com.mycompany.app` por el nombre del paquete donde quedarán todos los archivos fuentes de su aplicación.
 
-Este tutorial provee un arquetipo de maven, llamado `antlr4-archetype`, para crear proyectos ANTLR4. Los proyectos creados a partir de este arquetipo están preconfigurado para comenzar a desarrollar sin mayores inconvenientes (asumiendo que los pasos anteriores de instalación hayan sido ejecutados correctamente).
+```
+mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=antlr4-archetype -DinteractiveMode=false
+```
 
+Por ejemplo, para crear una aplicación que se llame `MiLenguaje` y que el código fuente quede en el paquete `com.milenguaje`, debe escribir lo siguiente:
 
+```
+mvn archetype:generate -DgroupId=com.milenguaje -DartifactId=MiLenguaje -DarchetypeArtifactId=antlr4-archetype -DinteractiveMode=false
+```
+
+Luego de ello, podrá importar el proyecto generado en Eclipse, utilizando la opción `File->Import->Existing Maven Projects`.
 
