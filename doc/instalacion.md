@@ -37,11 +37,12 @@ Opcional:
 
 Alternativamente, todos los plugins anteriores (m2e) pueden instalarse en forma automática utilizando el archivo de instalación P2F que se encuentra en `_RUTA_`.
 
-1. Abrir menú `File->Import->Install->Install Software Items from File`
-2. Hacer click en `Browse`
-3. Buscar y seleccionar el archivo antlr.p2f
-4. Seleccionar todos los plugins que aparezcan en la lista 
-5. _Deseleccionar_ la opción `Install latest version of selected software`. Esto es porque el plugin ANTLR 4 IDE funciona exclusivamente con la versión 2.7.2 de Xtext.
+1. Instalar [Eclipse Modeling Tools](http://www.eclipse.org/downloads/packages/eclipse-modeling-tools/mars2)
+2. Abrir menú `File->Import->Install->Install Software Items from File`
+3. Hacer click en `Browse`
+4. Buscar y seleccionar el archivo antlr.p2f
+5. Seleccionar todos los plugins que aparezcan en la lista 
+6. _Deseleccionar_ la opción `Install latest version of selected software`. Esto es porque el plugin ANTLR 4 IDE funciona exclusivamente con la versión 2.7.2 de Xtext.
 
 ### III. Maven
 
