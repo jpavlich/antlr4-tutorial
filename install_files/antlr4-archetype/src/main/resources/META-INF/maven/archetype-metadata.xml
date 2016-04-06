@@ -12,15 +12,6 @@
 		<requiredProperty key="fileExtension">
 			<defaultValue>${artifactId.toLowerCase().replace("-","")}</defaultValue>
 		</requiredProperty>
-		<requiredProperty key="pkg1">
-			<defaultValue>${groupId.toLowerCase().replace("-","")}</defaultValue>
-		</requiredProperty>
-		<requiredProperty key="pkg2">
-			<defaultValue>${artifactId.toLowerCase().replace("-","")}</defaultValue>
-		</requiredProperty>
-		<requiredProperty key="basePackage">
-			<defaultValue>${groupId.toLowerCase().replace("-","")}.${artifactId.toLowerCase().replace("-","")}</defaultValue>
-		</requiredProperty>
 
 	</requiredProperties>
 

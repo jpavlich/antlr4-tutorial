@@ -2,7 +2,7 @@
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
 
-package ${basePackage};
+package ${package};
 
 public class ${classPrefix}CustomVisitor extends ${classPrefix}BaseVisitor<Object> {
 
