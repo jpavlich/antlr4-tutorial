@@ -6,14 +6,14 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
 	<requiredProperties>
-		<requiredProperty key="classPrefix">
-			<defaultValue>${artifactId.substring(0,1).toUpperCase().replace("-","")}${artifactId.substring(1).replace("-","")}</defaultValue>
+		<requiredProperty key="grammarName" >
 		</requiredProperty>
 		<requiredProperty key="fileExtension">
-			<defaultValue>${artifactId.toLowerCase().replace("-","")}</defaultValue>
 		</requiredProperty>
 
 	</requiredProperties>
+	
+
 
 	<fileSets>
 		<fileSet filtered="true" encoding="UTF-8">

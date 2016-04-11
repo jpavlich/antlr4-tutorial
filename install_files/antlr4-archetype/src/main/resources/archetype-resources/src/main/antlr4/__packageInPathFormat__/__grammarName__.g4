@@ -1,4 +1,4 @@
-grammar ${classPrefix};
+grammar ${grammarName};
 
 start
 :

@@ -17,13 +17,13 @@ public class Main {
 
 		System.out.println("Interpreting file " + program);
 
-		${classPrefix}Lexer lexer = new ${classPrefix}Lexer(new ANTLRFileStream(program));
+		${grammarName}Lexer lexer = new ${grammarName}Lexer(new ANTLRFileStream(program));
 		CommonTokenStream tokens = new CommonTokenStream(lexer);
-		${classPrefix}Parser parser = new ${classPrefix}Parser(tokens);
+		${grammarName}Parser parser = new ${grammarName}Parser(tokens);
 
-		${classPrefix}Parser.StartContext tree = parser.start();
+		${grammarName}Parser.StartContext tree = parser.start();
 
-		${classPrefix}CustomVisitor visitor = new ${classPrefix}CustomVisitor();
+		${grammarName}CustomVisitor visitor = new ${grammarName}CustomVisitor();
 		visitor.visit(tree);
 
 		System.out.println("Interpretation finished");

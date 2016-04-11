@@ -4,7 +4,7 @@
 
 package ${package};
 
-public class ${classPrefix}CustomVisitor extends ${classPrefix}BaseVisitor<Object> {
+public class ${grammarName}CustomVisitor extends ${grammarName}BaseVisitor<Object> {
 
 
 
