@@ -26,14 +26,19 @@ El repositorio de este tutorial contiene muchos archivos útiles para la instala
 
 
 ### Eclipse
+Hay dos formas de configurar Eclipse como ambiente de desarrollo.
+
+#### Opción 1
 
 1. Instalar [Eclipse Modeling Tools](http://www.eclipse.org/downloads/packages/eclipse-modeling-tools/mars2)
-2. Instalar el plugin [m2e](http://www.eclipse.org/m2e/m2e-downloads.html)
+2. Instalar el plugin [m2e](http://www.eclipse.org/m2e/)
 3. Instalar el plugin   [m2e connector for antlr ]()
 4. Instalar el plugin   [m2e connector for the Maven Dependency Plugin]()
 Opcional:
 1. Instalar el plugin [Xtext](https://eclipse.org/Xtext/download.html). La versión _debe_ ser la 2.7.2.
 2. Instalar el plugin [ANTLR 4 IDE](https://github.com/jknack/antlr4ide)
+
+#### Opción 2
 
 Alternativamente, todos los plugins anteriores (m2e) pueden instalarse en forma automática utilizando el archivo de instalación P2F que se encuentra en `antlr4-tutorial-master/install_files/antlr-maven.p2f`.
 
