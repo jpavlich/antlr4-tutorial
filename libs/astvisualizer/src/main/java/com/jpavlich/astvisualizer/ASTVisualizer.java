@@ -23,7 +23,12 @@ import org.abego.treelayout.TreeLayout;
 import org.abego.treelayout.util.DefaultConfiguration;
 
 /**
- * Hello world!
+ * This class displays an abstract syntax tree. The nodes of the
+ * tree can be any subclasses of a particular class or interface.
+ * This class begins at the root object and finds the children by
+ * reflectively visiting all of the declared attributes in the root class  
+ * (inherited attributes are not visited). The process repeats
+ * recursively for all the children.
  *
  */
 public class ASTVisualizer {
@@ -31,12 +36,23 @@ public class ASTVisualizer {
 	private Object root;
 	Class<?> superclass;
 
+	/** Creates an instance of the AST visualizer.
+	 * @param root The object that is the root of the tree that needs to be visualized
+	 * @param superclass The superclass of all of the objects that will be visualized. 
+	 * Any object that is not a subclass of superclass will not be displayed in the tree.
+	 * Be careful to not choose classes or interfaces that are too general (e.g. Object),
+	 * since the visualizer may enter an infinite recursion.
+	 */
 	public ASTVisualizer(Object root, Class<?> superclass) {
 		super();
 		this.root = root;
 		this.superclass = superclass;
 	}
 
+	/** Shows the window that displays the tree
+	 * @param width Width of the window
+	 * @param height Height of the window
+	 */
 	public void visualize(int width, int height) {
 		try {
 			ASTVNode rootNode = createTree(root, null, "");
