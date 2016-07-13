@@ -4,19 +4,19 @@ import java.util.List;
 
 import org.abego.treelayout.util.AbstractTreeForTreeLayout;
 
-public class AbstractTreeForASTLayout extends AbstractTreeForTreeLayout<ASTNodeWrapper>{
+public class AbstractTreeForASTLayout extends AbstractTreeForTreeLayout<ASTVNode>{
 
-	public AbstractTreeForASTLayout(ASTNodeWrapper root) {
+	public AbstractTreeForASTLayout(ASTVNode root) {
 		super(root);
 	}
 
 	@Override
-	public List<ASTNodeWrapper> getChildrenList(ASTNodeWrapper node) {
+	public List<ASTVNode> getChildrenList(ASTVNode node) {
 		return node.getChildren();
 	}
 
 	@Override
-	public ASTNodeWrapper getParent(ASTNodeWrapper node) {
+	public ASTVNode getParent(ASTVNode node) {
 		return node.getParent();
 	}
 

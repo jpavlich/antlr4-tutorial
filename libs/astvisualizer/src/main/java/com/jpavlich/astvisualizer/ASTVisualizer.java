@@ -23,18 +23,16 @@ public class ASTVisualizer {
 
 	private Object root;
 	Class<?> superclass;
-	boolean separateAttributes;
 
-	public ASTVisualizer(Object root, Class<?> superclass, boolean separateAttributes) {
+	public ASTVisualizer(Object root, Class<?> superclass) {
 		super();
 		this.root = root;
 		this.superclass = superclass;
-		this.separateAttributes = separateAttributes;
 	}
 
 	public void visualize() {
 		try {
-			ASTNodeWrapper rootNode = createTree(root, null, "");
+			ASTVNode rootNode = createTree(root, null, "");
 			if (rootNode == null)
 				return;
 			AbstractTreeForASTLayout tree = new AbstractTreeForASTLayout(rootNode);
@@ -42,13 +40,13 @@ public class ASTVisualizer {
 			// setup the tree layout configuration
 			double gapBetweenLevels = 50;
 			double gapBetweenNodes = 10;
-			DefaultConfiguration<ASTNodeWrapper> configuration = new DefaultConfiguration<ASTNodeWrapper>(
-					gapBetweenLevels, gapBetweenNodes);
+			DefaultConfiguration<ASTVNode> configuration = new DefaultConfiguration<ASTVNode>(gapBetweenLevels,
+					gapBetweenNodes);
 
 			Font font = new JLabel().getFont();
 			// Create a panel that draws the nodes and edges and show the panel
 			JFrame f = new JFrame();
-			
+
 			JComponent container = (JComponent) f.getContentPane();
 			container.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 
@@ -56,8 +54,7 @@ public class ASTVisualizer {
 			ASTNodeExtentProvider nodeExtentProvider = new ASTNodeExtentProvider(font);
 
 			// create the layout
-			TreeLayout<ASTNodeWrapper> treeLayout = new TreeLayout<ASTNodeWrapper>(tree, nodeExtentProvider,
-					configuration);
+			TreeLayout<ASTVNode> treeLayout = new TreeLayout<ASTVNode>(tree, nodeExtentProvider, configuration);
 
 			ASTPane astPane = new ASTPane(treeLayout, font);
 			container.add(astPane);
@@ -79,36 +76,28 @@ public class ASTVisualizer {
 
 	}
 
-	private ASTNodeWrapper createTree(Object obj, ASTNodeWrapper parent, String fieldName) throws Exception {
+	private ASTVNode createTree(Object obj, ASTVNode parent, String fieldName) throws Exception {
 
 		if (superclass.isAssignableFrom(obj.getClass())) {
-			ASTNodeWrapper node = new ASTNodeWrapper(obj, parent, obj.getClass().getSimpleName(), Color.orange);
+			ASTVNode node = new ASTVNode(obj, parent, obj.getClass().getSimpleName(), Color.orange, Color.black);
 			for (Field f : obj.getClass().getDeclaredFields()) {
 				f.setAccessible(true);
-				if (separateAttributes) {
-					ASTNodeWrapper fieldNode = new ASTNodeWrapper(f, node, f.getName(), Color.lightGray);
-					Object child = f.get(obj);
-					createTree(child, fieldNode, f.getName());
+				Object child = f.get(obj);
+				if (f.getType().isPrimitive()) {
+					node.name += "\n" + f.getName() + " = " + child;  
 				} else {
-					node.setName(f.getName() + ":" + node.getName());
-					Object child = f.get(obj);
-					createTree(child, node, f.getName());
+					ASTVNode fieldNode = new ASTVNode(f, node, f.getName(), new Color(0,0,0,0), new Color(0,0,0,0));
+					createTree(child, fieldNode, f.getName());
 				}
 
 			}
 			return node;
 		} else if (Collection.class.isAssignableFrom(obj.getClass())) {
-			ASTNodeWrapper node;
-			if (separateAttributes) {
-				node = parent;
-			} else {
-				node = new ASTNodeWrapper(obj, parent, fieldName + ":" + obj.getClass().getSimpleName(), Color.orange);
-			}
 			Collection<?> list = (Collection<?>) obj;
 			for (Object elem : list) {
-				createTree(elem, node, "");
+				createTree(elem, parent, "");
 			}
-			return node;
+			return parent;
 		}
 		return null;
 

@@ -49,18 +49,18 @@ import org.abego.treelayout.TreeLayout;
  */
 public class ASTPane extends JComponent {
 	private static final long serialVersionUID = -7172339407066277588L;
-	private final TreeLayout<ASTNodeWrapper> treeLayout;
+	private final TreeLayout<ASTVNode> treeLayout;
 	private Font nodeFont;
 
-	private TreeForTreeLayout<ASTNodeWrapper> getTree() {
+	private TreeForTreeLayout<ASTVNode> getTree() {
 		return treeLayout.getTree();
 	}
 
-	private Iterable<ASTNodeWrapper> getChildren(ASTNodeWrapper parent) {
+	private Iterable<ASTVNode> getChildren(ASTVNode parent) {
 		return getTree().getChildren(parent);
 	}
 
-	private Rectangle2D.Double getBoundsOfNode(ASTNodeWrapper node) {
+	private Rectangle2D.Double getBoundsOfNode(ASTVNode node) {
 		return treeLayout.getNodeBounds().get(node);
 	}
 
@@ -70,7 +70,7 @@ public class ASTPane extends JComponent {
 	 * 
 	 * @param treeLayout the {@link TreeLayout} to be displayed
 	 */
-	public ASTPane(TreeLayout<ASTNodeWrapper> treeLayout, Font nodeFont) {
+	public ASTPane(TreeLayout<ASTVNode> treeLayout, Font nodeFont) {
 		this.treeLayout = treeLayout;
 
 		Dimension size = treeLayout.getBounds().getBounds().getSize();
@@ -82,15 +82,14 @@ public class ASTPane extends JComponent {
 	// painting
 
 	private final static int ARC_SIZE = 10;
-	private final static Color BORDER_COLOR = Color.darkGray;
 	private final static Color TEXT_COLOR = Color.black;
 
-	private void paintEdges(Graphics g, ASTNodeWrapper parent) {
+	private void paintEdges(Graphics g, ASTVNode parent) {
 		if (!getTree().isLeaf(parent)) {
 			Rectangle2D.Double b1 = getBoundsOfNode(parent);
 			double x1 = b1.getCenterX();
 			double y1 = b1.getCenterY();
-			for (ASTNodeWrapper child : getChildren(parent)) {
+			for (ASTVNode child : getChildren(parent)) {
 				Rectangle2D.Double b2 = getBoundsOfNode(child);
 				g.drawLine((int) x1, (int) y1, (int) b2.getCenterX(),
 						(int) b2.getCenterY());
@@ -100,13 +99,13 @@ public class ASTPane extends JComponent {
 		}
 	}
 
-	private void paintBox(Graphics g, ASTNodeWrapper astNodeWrapper) {
+	private void paintBox(Graphics g, ASTVNode astNodeWrapper) {
 		// draw the box in the background
-		g.setColor(astNodeWrapper.getColor());
+		g.setColor(astNodeWrapper.getBgColor());
 		Rectangle2D.Double box = getBoundsOfNode(astNodeWrapper);
 		g.fillRoundRect((int) box.x, (int) box.y, (int) box.width - 1,
 				(int) box.height - 1, ARC_SIZE, ARC_SIZE);
-		g.setColor(BORDER_COLOR);
+		g.setColor(astNodeWrapper.getFgColor());
 		g.drawRoundRect((int) box.x, (int) box.y, (int) box.width - 1,
 				(int) box.height - 1, ARC_SIZE, ARC_SIZE);
 
@@ -136,7 +135,7 @@ public class ASTPane extends JComponent {
 		paintEdges(g, getTree().getRoot());
 
 		// paint the boxes
-		for (ASTNodeWrapper astNodeWrapper : treeLayout.getNodeBounds().keySet()) {
+		for (ASTVNode astNodeWrapper : treeLayout.getNodeBounds().keySet()) {
 			paintBox(g, astNodeWrapper);
 		}
 	}
