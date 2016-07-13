@@ -31,6 +31,7 @@ package com.jpavlich.astvisualizer;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.geom.Rectangle2D;
@@ -49,6 +50,7 @@ import org.abego.treelayout.TreeLayout;
 public class ASTPane extends JComponent {
 	private static final long serialVersionUID = -7172339407066277588L;
 	private final TreeLayout<ASTNodeWrapper> treeLayout;
+	private Font nodeFont;
 
 	private TreeForTreeLayout<ASTNodeWrapper> getTree() {
 		return treeLayout.getTree();
@@ -68,18 +70,18 @@ public class ASTPane extends JComponent {
 	 * 
 	 * @param treeLayout the {@link TreeLayout} to be displayed
 	 */
-	public ASTPane(TreeLayout<ASTNodeWrapper> treeLayout) {
+	public ASTPane(TreeLayout<ASTNodeWrapper> treeLayout, Font nodeFont) {
 		this.treeLayout = treeLayout;
 
 		Dimension size = treeLayout.getBounds().getBounds().getSize();
 		setPreferredSize(size);
+		this.nodeFont = nodeFont;
 	}
 
 	// -------------------------------------------------------------------
 	// painting
 
 	private final static int ARC_SIZE = 10;
-	private final static Color BOX_COLOR = Color.orange;
 	private final static Color BORDER_COLOR = Color.darkGray;
 	private final static Color TEXT_COLOR = Color.black;
 
@@ -100,7 +102,7 @@ public class ASTPane extends JComponent {
 
 	private void paintBox(Graphics g, ASTNodeWrapper astNodeWrapper) {
 		// draw the box in the background
-		g.setColor(BOX_COLOR);
+		g.setColor(astNodeWrapper.getColor());
 		Rectangle2D.Double box = getBoundsOfNode(astNodeWrapper);
 		g.fillRoundRect((int) box.x, (int) box.y, (int) box.width - 1,
 				(int) box.height - 1, ARC_SIZE, ARC_SIZE);
@@ -110,14 +112,21 @@ public class ASTPane extends JComponent {
 
 		// draw the text on top of the box (possibly multiple lines)
 		g.setColor(TEXT_COLOR);
+		Font prevFont = g.getFont();
+		g.setFont(nodeFont);
 		String[] lines = astNodeWrapper.getText().split("\n");
-		FontMetrics m = getFontMetrics(getFont());
+		FontMetrics m = getFontMetrics();
 		int x = (int) box.x + ARC_SIZE / 2;
 		int y = (int) box.y + m.getAscent() + m.getLeading() + 1;
 		for (int i = 0; i < lines.length; i++) {
 			g.drawString(lines[i], x, y);
 			y += m.getHeight();
 		}
+		g.setFont(prevFont);
+	}
+
+	public FontMetrics getFontMetrics() {
+		return getFontMetrics(nodeFont);
 	}
 
 	@Override
