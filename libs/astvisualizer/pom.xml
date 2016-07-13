@@ -2,13 +2,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.jpavlich</groupId>
-	<artifactId>astvisualizer</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<groupId>org.jpavlich</groupId>
+	<artifactId>ast-visualizer</artifactId>
+	<version>0.0.1-RELEASE</version>
 	<packaging>jar</packaging>
 
-	<name>astvisualizer</name>
-	<url>http://maven.apache.org</url>
+	<name>ast-visualizer</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
