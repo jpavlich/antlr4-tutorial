@@ -37,7 +37,7 @@ public class ASTVisualizer {
 		this.superclass = superclass;
 	}
 
-	public void visualize() {
+	public void visualize(int width, int height) {
 		try {
 			ASTVNode rootNode = createTree(root, null, "");
 			if (rootNode == null)
@@ -65,7 +65,7 @@ public class ASTVisualizer {
 
 			ASTPane astPane = new ASTPane(treeLayout, font);
 			JScrollPane scrollPane = new JScrollPane(astPane);
-			scrollPane.setPreferredSize(new Dimension(800, 600));
+			scrollPane.setPreferredSize(new Dimension(width, height));
 			scrollPane.setBorder(BorderFactory.createEmptyBorder());
 			container.add(scrollPane);
 			f.pack();
