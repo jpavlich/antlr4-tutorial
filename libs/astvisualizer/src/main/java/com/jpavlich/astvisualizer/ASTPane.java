@@ -74,6 +74,7 @@ public class ASTPane extends JComponent {
 		this.treeLayout = treeLayout;
 
 		Dimension size = treeLayout.getBounds().getBounds().getSize();
+//		Dimension size = new Dimension(800, 600);
 		setPreferredSize(size);
 		this.nodeFont = nodeFont;
 	}
@@ -99,13 +100,13 @@ public class ASTPane extends JComponent {
 		}
 	}
 
-	private void paintBox(Graphics g, ASTVNode astNodeWrapper) {
+	private void paintBox(Graphics g, ASTVNode astNode) {
 		// draw the box in the background
-		g.setColor(astNodeWrapper.getBgColor());
-		Rectangle2D.Double box = getBoundsOfNode(astNodeWrapper);
+		g.setColor(astNode.getBgColor());
+		Rectangle2D.Double box = getBoundsOfNode(astNode);
 		g.fillRoundRect((int) box.x, (int) box.y, (int) box.width - 1,
 				(int) box.height - 1, ARC_SIZE, ARC_SIZE);
-		g.setColor(astNodeWrapper.getFgColor());
+		g.setColor(astNode.getFgColor());
 		g.drawRoundRect((int) box.x, (int) box.y, (int) box.width - 1,
 				(int) box.height - 1, ARC_SIZE, ARC_SIZE);
 
@@ -113,10 +114,10 @@ public class ASTPane extends JComponent {
 		g.setColor(TEXT_COLOR);
 		Font prevFont = g.getFont();
 		g.setFont(nodeFont);
-		String[] lines = astNodeWrapper.getText().split("\n");
+		String[] lines = astNode.getText().split("\n");
 		FontMetrics m = getFontMetrics();
 		int x = (int) box.x + ARC_SIZE / 2;
-		int y = (int) box.y + m.getAscent() + m.getLeading() + 1;
+		int y = (int) box.y + m.getAscent() + m.getLeading() + 1 + astNode.getyOffset();
 		for (int i = 0; i < lines.length; i++) {
 			g.drawString(lines[i], x, y);
 			y += m.getHeight();
@@ -135,8 +136,8 @@ public class ASTPane extends JComponent {
 		paintEdges(g, getTree().getRoot());
 
 		// paint the boxes
-		for (ASTVNode astNodeWrapper : treeLayout.getNodeBounds().keySet()) {
-			paintBox(g, astNodeWrapper);
+		for (ASTVNode astNode : treeLayout.getNodeBounds().keySet()) {
+			paintBox(g, astNode);
 		}
 	}
 }

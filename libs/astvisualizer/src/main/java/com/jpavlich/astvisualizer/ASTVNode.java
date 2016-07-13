@@ -11,8 +11,9 @@ public class ASTVNode {
 	private Color bgColor;
 	private Color fgColor;
 	String name;
+	private int yOffset;
 
-	public ASTVNode(Object node, ASTVNode parent, String name, Color bgColor, Color fgColor) {
+	public ASTVNode(Object node, ASTVNode parent, String name, Color bgColor, Color fgColor, int yOffset) {
 		super();
 		this.node = node;
 		if (parent != null) {
@@ -22,6 +23,7 @@ public class ASTVNode {
 		this.name = name;
 		this.bgColor = bgColor;
 		this.fgColor = fgColor;
+		this.yOffset = yOffset;
 	}
 
 	public Object getNode() {
@@ -57,6 +59,10 @@ public class ASTVNode {
 
 	public Color getFgColor() {
 		return fgColor;
+	}
+
+	public int getyOffset() {
+		return yOffset;
 	}
 	
 	
