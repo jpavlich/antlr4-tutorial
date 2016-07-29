@@ -3,10 +3,6 @@ package com.jpavlich.astvisualizer;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Point;
-import java.awt.Rectangle;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.lang.reflect.Field;
@@ -17,7 +13,6 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
-import javax.swing.JViewport;
 
 import org.abego.treelayout.TreeLayout;
 import org.abego.treelayout.util.DefaultConfiguration;
@@ -29,7 +24,6 @@ import org.abego.treelayout.util.DefaultConfiguration;
  * reflectively visiting all of the declared attributes in the root class  
  * (inherited attributes are not visited). The process repeats
  * recursively for all the children.
- *
  */
 public class ASTVisualizer {
 
