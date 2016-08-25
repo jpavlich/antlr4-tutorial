@@ -32,7 +32,7 @@ Hay dos formas de configurar Eclipse como ambiente de desarrollo.
 
 Alternativamente, todos los plugins anteriores (m2e) pueden instalarse en forma automática utilizando el archivo de instalación P2F que se encuentra en `antlr4-tutorial-master/install_files/antlr-maven.p2f`.
 
-1. Instalar [Eclipse Modeling Tools](http://www.eclipse.org/downloads/packages/eclipse-modeling-tools/mars2)
+1. Instalar [Eclipse Modeling Tools (Mars)](http://www.eclipse.org/downloads/packages/eclipse-modeling-tools/mars2). **Es importante que la versión de Eclipse sea Mars. Cualquier otra versión no funcionará**
 2. Abrir menú `File->Import->Install->Install Software Items from File`
 3. Hacer click en `Browse`
 4. Buscar y seleccionar el archivo `antlr4-tutorial-master/install_files/antlr-maven.p2f`
