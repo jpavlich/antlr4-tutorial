@@ -55,18 +55,28 @@ Las instrucciones para instalar maven se encuentran [aquí](https://maven.apache
 
 ## II. Configuración de un proyecto en ANTLR 4
 
-El repositorio también provee un arquetipo de maven, llamado `antlr4-archetype`, para crear proyectos ANTLR4. Los proyectos creados a partir de este arquetipo están preconfigurados para comenzar a desarrollar sin mayores inconvenientes (asumiendo que los pasos anteriores de la instalación hayan sido ejecutados correctamente).
+El repositorio también provee un arquetipo de maven, llamado `antlr4-archetype`, para crear proyectos ANTLR4 y una librería, llamada `ast-visualizer` para desplegar árboles semánticos. Los proyectos creados a partir del arquetipo están preconfigurados para comenzar a desarrollar sin mayores inconvenientes (asumiendo que todos los pasos de la instalación hayan sido ejecutados correctamente).
+
+**Los siguientes pasos sólo hay que ejecutarlos una vez:**
 
 1. Abrir la línea de comandos e ingresar a la carpeta `antlr4-tutorial-master`.
 2. Instalar el arquetipo `antlr4-archetype` que se encuentra en `install_files/antlr4-archetype`.
 
 ```
 cd install_files/antlr4-archetype
-mvn install
-cd ..
+mvn clean install
+cd ../..
 ```
 
-2. Crear un nuevo proyecto basado en el arquetipo `antlr4-archetype`. En el siguiente comando, reemplace `my-app` por el nombre del proyecto que desea crear y `com.mycompany.app` por el nombre del paquete donde quedarán todos los archivos fuentes de su aplicación.
+3. Instalar la librería `ast-visualizer` que se encuentra en `libs/astvisualizer`
+```
+cd libs/astvisualizer
+mvn clean install
+```
+
+**El siguiente paso hay que ejecutarlo cada vez que se desee crear un nuevo proyecto:**
+
+1. Crear un nuevo proyecto basado en el arquetipo `antlr4-archetype`. En el siguiente comando, reemplace `my-app` por el nombre del proyecto que desea crear y `com.mycompany.app` por el nombre del paquete donde quedarán todos los archivos fuentes de su aplicación.
 
 ```
 mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=antlr4-archetype -DinteractiveMode=false
@@ -79,4 +89,5 @@ mvn archetype:generate -DgroupId=com.milenguaje -DartifactId=MiLenguaje -Darchet
 ```
 
 Luego de ello, podrá importar el proyecto generado en Eclipse, utilizando la opción `File->Import->Existing Maven Projects`.
+
 
