@@ -67,7 +67,6 @@ cd install_files/antlr4-archetype
 mvn clean install
 cd ../..
 ```
-
 3. Instalar la librería `ast-visualizer` que se encuentra en `libs/astvisualizer`
 ```
 cd libs/astvisualizer
