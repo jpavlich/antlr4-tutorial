@@ -61,7 +61,6 @@ El repositorio también provee un arquetipo de maven, llamado `antlr4-archetype`
 
 1. Abrir la línea de comandos e ingresar a la carpeta `antlr4-tutorial-master`.
 2. Instalar el arquetipo `antlr4-archetype` que se encuentra en `install_files/antlr4-archetype`.
-
 ```
 cd install_files/antlr4-archetype
 mvn clean install
