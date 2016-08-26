@@ -59,14 +59,14 @@ El repositorio también provee un arquetipo de maven, llamado `antlr4-archetype`
 
 **Los siguientes pasos sólo hay que ejecutarlos una vez:**
 
-1. Abrir la línea de comandos e ingresar a la carpeta `antlr4-tutorial-master`.
-2. Instalar el arquetipo `antlr4-archetype` que se encuentra en `install_files/antlr4-archetype`.
+* Abrir la línea de comandos e ingresar a la carpeta `antlr4-tutorial-master`.
+* Instalar el arquetipo `antlr4-archetype` que se encuentra en `install_files/antlr4-archetype`.
 ```
 cd install_files/antlr4-archetype
 mvn clean install
 cd ../..
 ```
-3. Instalar la librería `ast-visualizer` que se encuentra en `libs/astvisualizer`
+* Instalar la librería `ast-visualizer` que se encuentra en `libs/astvisualizer`
 ```
 cd libs/astvisualizer
 mvn clean install
@@ -74,7 +74,7 @@ mvn clean install
 
 **El siguiente paso hay que ejecutarlo cada vez que se desee crear un nuevo proyecto:**
 
-1. Crear un nuevo proyecto basado en el arquetipo `antlr4-archetype`. En el siguiente comando, reemplace `my-app` por el nombre del proyecto que desea crear y `com.mycompany.app` por el nombre del paquete donde quedarán todos los archivos fuentes de su aplicación.
+* Crear un nuevo proyecto basado en el arquetipo `antlr4-archetype`. En el siguiente comando, reemplace `my-app` por el nombre del proyecto que desea crear y `com.mycompany.app` por el nombre del paquete donde quedarán todos los archivos fuentes de su aplicación.
 
 ```
 mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=antlr4-archetype -DinteractiveMode=false
