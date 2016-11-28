@@ -55,7 +55,7 @@ Es necesario desactivar una opción del plugin ANTLR 4 IDE.
 1. Abrir las preferencias de Eclipse. 
 2. Abrir ANTLR4 -> Tool
 3. Desactivar la opción `Tool is activated`. Las opciones deben quedar como en la siguiente imagen:
-!(antlr-preferences.png)
+![](antlr-preferences.png)
 
 ### Maven
 
