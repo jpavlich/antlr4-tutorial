@@ -49,6 +49,14 @@ Opcional:
 1. Instalar el plugin [Xtext](https://eclipse.org/Xtext/download.html). La versión _debe_ ser la 2.7.3.
 2. Instalar el plugin [ANTLR 4 IDE](https://github.com/jknack/antlr4ide)
 
+#### Después de instalar Eclipse
+Es necesario desactivar una opción del plugin ANTLR 4 IDE. 
+
+1. Abrir las preferencias de Eclipse. 
+2. Abrir ANTLR4 -> Tool
+3. Desactivar la opción `Tool is activated`. Las opciones deben quedar como en la siguiente imagen:
+!(antlr-preferences.png)
+
 ### Maven
 
 Las instrucciones para instalar maven se encuentran [aquí](https://maven.apache.org/install.html)
