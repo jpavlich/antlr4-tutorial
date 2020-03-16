@@ -20,7 +20,7 @@ Se asume que el lector tiene las siguientes competencias:
         - Configurar proceso de construcción (build)
 
 ## I. Instalación de entorno de desarrollo
-Todo el software requiere instalar **JDK 1.8, ya sea la versión de Oracle y OpenJDK**, el cual debe ser habilitado como el JDK por defecto del sistema operativo. Habrán problemas si se utiliza una versión posterior.
+Todo el software requiere instalar **JDK 11, ya sea la versión de Oracle u OpenJDK**, el cual debe ser habilitado como el JDK por defecto del sistema operativo. Habrán problemas si se utiliza una versión posterior.
 
 El repositorio de este tutorial contiene muchos archivos útiles para la instalación. La forma más simple de descargar el repositorio es:
 
