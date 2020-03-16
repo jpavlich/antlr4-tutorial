@@ -1,36 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <?p2f version='1.0.0'?>
 <p2f version='1.0.0'>
-  <ius size='5'>
-    <iu id='antlr4ide.sdk.feature.group' name='ANTLR 4 SDK' version='0.3.5'>
+  <ius size='1'>
+    <iu id='antlr4ide.sdk.feature.group' name='ANTLR 4 SDK' version='0.3.6.201611052310'>
       <repositories size='1'>
-        <repository location='http://dl.bintray.com/jknack/antlr4ide/'/>
-      </repositories>
-    </iu>
-    <iu id='org.eclipse.m2e.feature.feature.group' name='m2e - Maven Integration for Eclipse (includes Incubating components)' version='1.6.2.20150902-0002'>
-      <repositories size='4'>
-        <repository location='http://download.eclipse.org/releases/mars/201602261000'/>
-        <repository location='http://download.eclipse.org/releases/mars'/>
-        <repository location='http://download.eclipse.org/technology/m2e/releases'/>
-        <repository location='http://www.eclipse.org/modeling/amalgam/downloads/package/modeling/mars/'/>
-      </repositories>
-    </iu>
-    <iu id='org.sonatype.m2e.antlr.feature.feature.group' name='m2e connector for antlr' version='0.15.0.201207090124'>
-      <repositories size='1'>
-        <repository location='http://repo1.maven.org/maven2/.m2e/connectors/m2eclipse-antlr/0.15.0/N/0.15.0.201207090124/'/>
-      </repositories>
-    </iu>
-    <iu id='com.ianbrandt.tools.m2e.mdp.feature.feature.group' name='m2e connector for the Maven Dependency Plugin' version='0.0.4.201409291703'>
-      <repositories size='1'>
-        <repository location='http://ianbrandt.github.io/m2e-maven-dependency-plugin/0.0.4/'/>
-      </repositories>
-    </iu>
-    <iu id='org.eclipse.xtext.sdk.feature.group' name='Xtext Complete SDK' version='2.7.3.v201411190455'>
-      <repositories size='4'>
-        <repository location='http://download.eclipse.org/releases/mars/201602261000'/>
-        <repository location='http://download.eclipse.org/releases/mars'/>
-        <repository location='http://www.eclipse.org/modeling/amalgam/downloads/package/modeling/mars/'/>
-        <repository location='http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/'/>
+        <repository location='https://raw.githubusercontent.com/antlr4ide/antlr4ide-eclipse-release/master/'/>
       </repositories>
     </iu>
   </ius>
