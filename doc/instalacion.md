@@ -1,5 +1,7 @@
 # Instalación y configuración de ANTLR v4
 
+[Instrucciones antiguas de instalación](instalacion-antiguo.md)
+
 Existen varias alternativas para [utilizar ANTLR4](http://www.antlr.org/tools.html). En este tutorial nos enfocaremos en utilizar [Eclipse](http://www.eclipse.org/) y [Maven](https://maven.apache.org/). A pesar de ello, este tutorial debería servir con cambios mínimos para cualquiera de las demás herramientas disponibles.
 
 Se asume que el lector tiene las siguientes competencias:
